@@ -7,14 +7,14 @@
 	<style>
 
 		body {
-			background-color:#352b31;
+			background-color:#ccb4d6;
 			margin:0;
 		}
 
 		.but {
 			position:relative;
 			display:inline-block;
-			height:120px;
+			height:168px;
 			width:168px;
 			margin:0 10px;
 		}
@@ -29,7 +29,15 @@
 			transition: opacity 0.12s ease-in-out, transform 0.12s steps(4);
 
 			transform: translate(0px, 0px);
-		
+			/*.bottom.opacity: 0;*/
+		}
+
+		.but img.bottom{
+			opacity:0;
+		}
+
+		.but:hover img.bottom {
+			opacity: 1.0;
 		}
 
 		.but img.top:hover {
@@ -38,6 +46,7 @@
 
 		.but:hover img {
 			transform: translate(0px, -12px);
+			/*img.bottom.opacity: 1f;*/
 		}
 
 		.links{
@@ -48,10 +57,24 @@
 		}
 
 		#logo{
-			position:absolute;
+			position: absolute;
+			/*top: 50%;*/
+			left: 50%;
+			width: 938px;
+			height: 592px;
+			margin-top: 0%; /* Half the height */
+			margin-left: -469px; /* Half the width */
+			/*position:absolute;
 			text-align: center;
+			margin: auto;
 			top: calc(20vh - 100px);
-			width:100%;
+			left: 0;
+			right: 0;*/
+			/*width:100%;*/
+
+			/*width:100%; 
+			height:100%; 
+			background:url(Images/headerWideTest.png) center center no-repeat;*/
 		}
 
 		@media screen and (max-height: 600px) {
@@ -96,24 +119,28 @@
 <body>
 
 <div id="logo">
-	<img src="Images/header.png">
+	<img src="Images/headerWideTest.png">
 </div>
 <div class="links">
-	<a class="but" href="http://twitter.com/managore">
-	  	<img class="bottom" src="Images/games-A.png">
-	  	<img class="top"    src="Images/games-B.png">
+	<a class="but" href="http://twitter.com/joshuajumbles">
+	  	<img class="bottom" src="Images/gamesButtonOn.png">
+	  	<img class="top"    src="Images/gamesButtonOff.png">
 	</a>
 	<a class="but" href="https://joshuajumbles.itch.io/">
-	  	<img class="bottom" src="Images/games-A.png">
-	  	<img class="top"    src="Images/games-B.png">
+	  	<img class="bottom" src="Images/gamesButtonOn.png">
+	  	<img class="top"    src="Images/gamesButtonOff.png">
 	</a>
 	<a class="but" href="https://managore.tumblr.com/">
-	  	<img class="bottom" src="Images/games-A.png">
-	  	<img class="top"    src="Images/games-B.png">
+	  	<img class="bottom" src="Images/gamesButtonOn.png">
+	  	<img class="top"    src="Images/gamesButtonOff.png">
 	</a>
 	<a class="but" href="https://managore.tumblr.com/">
-	  	<img class="bottom" src="Images/games-A.png">
-	  	<img class="top"    src="Images/games-B.png">
+	  	<img class="bottom" src="Images/gamesButtonOn.png">
+	  	<img class="top"    src="Images/gamesButtonOff.png">
+	</a>
+	<a class="but" href="https://managore.tumblr.com/">
+	  	<img class="bottom" src="Images/gamesButtonOn.png">
+	  	<img class="top"    src="Images/gamesButtonOff.png">
 	</a>
 </div>
 
