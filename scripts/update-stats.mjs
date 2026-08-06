@@ -26,7 +26,6 @@ const QUERY = `
         totalCount
         pageInfo { hasNextPage endCursor }
         nodes {
-          stargazerCount
           languages(first: 10, orderBy: { field: SIZE, direction: DESC }) {
             edges { size node { name } }
           }
@@ -62,7 +61,6 @@ async function fetchPage(cursor) {
 let createdAt;
 let contributions;
 let repoCount = 0;
-let totalStars = 0;
 const languageBytes = new Map();
 
 let cursor = null;
@@ -72,7 +70,6 @@ for (;;) {
   contributions ??= user.contributionsCollection;
   repoCount = user.repositories.totalCount;
   for (const repo of user.repositories.nodes) {
-    totalStars += repo.stargazerCount;
     for (const edge of repo.languages.edges) {
       languageBytes.set(edge.node.name, (languageBytes.get(edge.node.name) ?? 0) + edge.size);
     }
@@ -108,7 +105,6 @@ const stats = {
   generatedAt: new Date().toISOString(),
   publicRepos: repoCount,
   yearsOnGithub,
-  totalStars,
   weeklyCommitCadence,
   languages,
 };

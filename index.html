@@ -162,9 +162,13 @@
         <span class="tb-cell" id="stat-synced">Auto-synced daily</span>
       </header>
       <div class="stat-row">
+        <!-- Static, not wired to assets/stats.json: the real total (incl.
+             private repos) isn't independently checkable by a visitor and
+             getting it live would need a personal token in this repo's
+             secrets. Update this by hand if it drifts far from "80+". -->
+        <div class="stat-cell"><span class="stat-num">80+</span><span class="stat-label">Total repos</span></div>
         <div class="stat-cell"><span class="stat-num" id="stat-repos">9</span><span class="stat-label">Public repos</span></div>
         <div class="stat-cell"><span class="stat-num" id="stat-years">16 yrs</span><span class="stat-label">Building in git</span></div>
-        <div class="stat-cell"><span class="stat-num" id="stat-stars">1</span><span class="stat-label">GitHub stars</span></div>
         <div class="stat-cell"><span class="stat-num" id="stat-cadence">1/wk</span><span class="stat-label">Commit cadence</span></div>
       </div>
       <div class="lang-row" id="lang-row">
@@ -253,7 +257,6 @@
       };
       setText('stat-repos', stats.publicRepos);
       setText('stat-years', stats.yearsOnGithub + ' yrs');
-      setText('stat-stars', stats.totalStars);
       setText('stat-cadence', stats.weeklyCommitCadence + '/wk');
 
       var langRow = document.getElementById('lang-row');
