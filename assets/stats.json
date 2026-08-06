@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-08-06T19:19:38.199029Z",
+  "publicRepos": 9,
+  "yearsOnGithub": 16,
+  "totalStars": 1,
+  "weeklyCommitCadence": 1,
+  "languages": [
+    {
+      "name": "Swift",
+      "pct": 59
+    },
+    {
+      "name": "JavaScript",
+      "pct": 18
+    },
+    {
+      "name": "C#",
+      "pct": 15
+    },
+    {
+      "name": "Other",
+      "pct": 8
+    }
+  ]
+}
