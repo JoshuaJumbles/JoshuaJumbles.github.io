@@ -159,19 +159,23 @@
       <header class="title-block">
         <span class="tb-title">JoshuaJumbles — repository record</span>
         <span class="tb-cell">GH-01</span>
-        <span class="tb-cell">Public + private</span>
+        <span class="tb-cell" id="stat-synced">Auto-synced daily</span>
       </header>
       <div class="stat-row">
-        <div class="stat-cell"><span class="stat-num">84</span><span class="stat-label">Repositories</span></div>
-        <div class="stat-cell"><span class="stat-num">10+ yrs</span><span class="stat-label">Building in git</span></div>
-        <div class="stat-cell"><span class="stat-num">7</span><span class="stat-label">Public repos</span></div>
-        <div class="stat-cell"><span class="stat-num">Weekly</span><span class="stat-label">Commit cadence</span></div>
+        <!-- Static, not wired to assets/stats.json: the real total (incl.
+             private repos) isn't independently checkable by a visitor and
+             getting it live would need a personal token in this repo's
+             secrets. Update this by hand if it drifts far from "80+". -->
+        <div class="stat-cell"><span class="stat-num">80+</span><span class="stat-label">Total repos</span></div>
+        <div class="stat-cell"><span class="stat-num" id="stat-repos">9</span><span class="stat-label">Public repos</span></div>
+        <div class="stat-cell"><span class="stat-num" id="stat-years">16 yrs</span><span class="stat-label">Building in git</span></div>
+        <div class="stat-cell"><span class="stat-num" id="stat-cadence">1/wk</span><span class="stat-label">Commit cadence</span></div>
       </div>
-      <div class="lang-row">
-        <span class="lang-seg"><b>38%</b>C#</span>
-        <span class="lang-seg"><b>27%</b>Swift</span>
-        <span class="lang-seg"><b>19%</b>JavaScript</span>
-        <span class="lang-seg"><b>16%</b>Other</span>
+      <div class="lang-row" id="lang-row">
+        <span class="lang-seg"><b>59%</b>Swift</span>
+        <span class="lang-seg"><b>18%</b>JavaScript</span>
+        <span class="lang-seg"><b>15%</b>C#</span>
+        <span class="lang-seg"><b>8%</b>Other</span>
       </div>
     </div>
   </section>
@@ -235,5 +239,64 @@
 </div>
 
 </x-dc>
+
+<script>
+  // Lives outside <x-dc> on purpose: that element's contents are torn out and
+  // re-rendered by the dc-runtime (support.js), so a script placed inside it
+  // wouldn't reliably run. This one is plain page JS, executed normally by
+  // the browser, and just patches text into the DOM once the runtime has
+  // mounted — assets/stats.json is refreshed daily by
+  // .github/workflows/update-stats.yml. If the fetch fails for any reason
+  // (offline, first paint, JSON missing), the static numbers already in the
+  // markup above stand as the fallback.
+  (function () {
+    function applyStats(stats) {
+      var setText = function (id, value) {
+        var el = document.getElementById(id);
+        if (el && value !== undefined && value !== null) el.textContent = value;
+      };
+      setText('stat-repos', stats.publicRepos);
+      setText('stat-years', stats.yearsOnGithub + ' yrs');
+      setText('stat-cadence', stats.weeklyCommitCadence + '/wk');
+
+      var langRow = document.getElementById('lang-row');
+      if (langRow && Array.isArray(stats.languages) && stats.languages.length) {
+        langRow.innerHTML = stats.languages
+          .map(function (l) { return '<span class="lang-seg"><b>' + l.pct + '%</b>' + l.name + '</span>'; })
+          .join('');
+      }
+
+      var synced = document.getElementById('stat-synced');
+      if (synced && stats.generatedAt) {
+        var d = new Date(stats.generatedAt);
+        synced.textContent = 'Synced ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }
+    }
+
+    function mounted() { return !!document.getElementById('stat-repos'); }
+
+    function waitForMount(cb) {
+      if (mounted()) return cb();
+      var tries = 0;
+      var timer = setInterval(function () {
+        tries++;
+        if (mounted() || tries > 100) {
+          clearInterval(timer);
+          if (mounted()) cb();
+        }
+      }, 50);
+    }
+
+    waitForMount(function () {
+      fetch('assets/stats.json', { cache: 'no-store' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('stats.json ' + res.status);
+          return res.json();
+        })
+        .then(applyStats)
+        .catch(function (err) { console.warn('[stats] using static fallback:', err); });
+    });
+  })();
+</script>
 </body>
 </html>
