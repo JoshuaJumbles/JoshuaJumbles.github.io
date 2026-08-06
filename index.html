@@ -1,149 +1,239 @@
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- <!--saved from url=(0031)http://daniellinssen.net/hello/ -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
-	<style>
-
-		body {
-			background-color:#b7aabc;
-			margin:0;
-		}
-
-		.but {
-			position:relative;
-			display:inline-block;
-			height:168px;
-			width:168px;
-			margin:0 10px;
-		}
-
-		.but img {
-			position:absolute;
-			left:0;
-			top:0;
-			-webkit-transition: opacity 0.12s ease-in-out;
-			-moz-transition: opacity 0.12s ease-in-out;
-			-o-transition: opacity 0.12s ease-in-out;
-			transition: opacity 0.12s ease-in-out, transform 0.12s steps(4);
-
-			transform: translate(0px, 0px);
-			/*.bottom.opacity: 0;*/
-		}
-
-		.but img.bottom{
-			opacity:0;
-		}
-
-		.but:hover img.bottom {
-			opacity: 1.0;
-		}
-
-		.but img.top:hover {
-			opacity:0;
-		}
-
-		.but:hover img {
-			transform: translate(0px, -12px);
-			/*img.bottom.opacity: 1f;*/
-		}
-
-		.links{
-			position:absolute;
-			text-align:center;
-			bottom: calc(20vh - 100px);
-			width:100%;
-		}
-
-		#logo{
-			position: absolute;
-			/*top: 50%;*/
-			left: 50%;
-			width: 938px;
-			height: 592px;
-			margin-top: 0%; /* Half the height */
-			margin-left: -469px; /* Half the width */
-			/*position:absolute;
-			text-align: center;
-			margin: auto;
-			top: calc(20vh - 100px);
-			left: 0;
-			right: 0;*/
-			/*width:100%;*/
-
-			/*width:100%; 
-			height:100%; 
-			background:url(Images/headerWideTest.png) center center no-repeat;*/
-		}
-
-		@media screen and (max-height: 600px) {
-			.links{
-				position:relative;
-				top: 60px;
-			}
-			#logo{
-				position:relative;
-				top: 20px;
-			}
-			html, body {
-            	height: 600px;
-            }
-		}
-
-		/* psst, I have no idea what I'm doing */
-
-	</style>
-
-	<script>
-	//   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	//   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	//   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	//   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-	//   ga('create', 'UA-52932237-3', 'auto');
-	//   ga('send', 'pageview');
-
-	</script>
-
-	<link rel="icon" type="image/png" href="Images/favicon.png">
-
-	<title>Joshua Jumbles</title>
-
-
-
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
 </head>
-
-
-
 <body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/industry-dbb9ddd1-4611-4b91-8fb6-a92b9518fed4/styles.css">
+  <script src="_ds/industry-dbb9ddd1-4611-4b91-8fb6-a92b9518fed4/_ds_bundle.js"></script>
+  <style>
+    :root { --leading: 24px; --half: 12px; --edge: clamp(20px, 5vw, 72px); --measure: 62ch; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    body { margin: 0; text-wrap: pretty; }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent-900); text-decoration: underline; }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--edge); }
+    .nav { padding-inline: max(var(--edge), calc((100% - 1200px) / 2 + var(--edge))); }
+    .nav a { white-space: nowrap; }
+    .nav a[aria-current='location'] { color: var(--color-accent-700); }
+    @media (max-width: 520px) { .nav a { display: none; } }
 
-<div id="logo">
-	<img src="Images/headerWideTest.png">
+    .kicker { display: block; font-size: 13px; line-height: var(--half); letter-spacing: 0.08em;
+      text-transform: uppercase; font-weight: 600; color: var(--color-accent-700);
+      font-feature-settings: "tnum" 1; margin: 0 0 var(--half); }
+    .caption-rule { height: 1px; border: 0; margin: 0 0 calc(var(--leading) - var(--half)); background: var(--color-divider); }
+
+    .hero { padding: calc(4 * var(--leading)) 0 calc(3 * var(--leading)); }
+    .display { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+      font-size: clamp(44px, 6.5vw, 88px); line-height: clamp(46px, 6.8vw, 92px);
+      letter-spacing: 0.01em; text-transform: uppercase; margin: 0 0 0 -0.052em;
+      text-box: trim-both cap alphabetic; }
+    .display .line { display: block; }
+    .hero .sub { font-size: 17px; line-height: var(--leading); max-width: var(--measure);
+      margin: calc(1.5 * var(--leading) - 1cap) 0 0; color: color-mix(in srgb, var(--color-text) 82%, transparent);
+      text-box: trim-both cap alphabetic; }
+    .hero .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--leading); }
+
+    .section { padding: calc(2.5 * var(--leading)) 0; }
+
+    .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--leading) clamp(24px, 5vw, 72px); }
+    .about-grid p { font-size: 16px; line-height: var(--leading); max-width: 62ch;
+      color: color-mix(in srgb, var(--color-text) 84%, transparent);
+      margin: 0 0 var(--half); }
+    .skills { display: flex; flex-wrap: wrap; gap: var(--space-2); align-content: flex-start; }
+
+    .plate { position: relative; border: 1px solid var(--color-divider); }
+    .plate > .corner { position: absolute; width: 15px; height: 15px;
+      color: color-mix(in srgb, var(--color-text) 55%, transparent); pointer-events: none; }
+    .plate > .corner::before { content: ""; position: absolute; left: 7px; top: 0; width: 1px; height: 100%; background: currentColor; }
+    .plate > .corner::after  { content: ""; position: absolute; top: 7px; left: 0; width: 100%; height: 1px; background: currentColor; }
+    .plate > .corner.tl { top: -8px; left: -8px; } .plate > .corner.tr { top: -8px; right: -8px; }
+    .plate > .corner.bl { bottom: -8px; left: -8px; } .plate > .corner.br { bottom: -8px; right: -8px; }
+    .title-block { display: flex; flex-wrap: wrap; align-items: stretch; border-bottom: 1px solid var(--color-divider); }
+    .title-block > span { padding: var(--half) var(--leading); font-size: 13px; line-height: var(--leading);
+      letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; font-feature-settings: "tnum" 1; }
+    .tb-title { flex: 1; min-width: 16ch; }
+    .tb-cell { border-left: 1px solid var(--color-divider); white-space: nowrap;
+      color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+    .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .stat-cell { padding: var(--leading); border-left: 1px solid var(--color-divider); text-align: center; }
+    .stat-cell:first-child { border-left: 0; }
+    .stat-num { display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+      font-size: 40px; line-height: 1.1; letter-spacing: 0.02em; color: var(--color-accent-700);
+      font-feature-settings: "tnum" 1; }
+    .stat-label { display: block; margin-top: var(--half); font-size: 13px; letter-spacing: 0.04em;
+      text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+    .lang-row { display: flex; border-top: 1px solid var(--color-divider); }
+    .lang-seg { padding: var(--half) var(--leading); font-size: 13px; letter-spacing: 0.04em;
+      text-transform: uppercase; border-left: 1px solid var(--color-divider); }
+    .lang-seg:first-child { border-left: 0; }
+    .lang-seg b { color: var(--color-accent-700); font-feature-settings: "tnum" 1; margin-right: 6px; }
+
+    .cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px);
+      margin-top: calc(var(--leading) - var(--half)); }
+    .proj-frame { position: relative; border: 1px solid var(--color-divider); padding: var(--leading);
+      display: flex; flex-direction: column; }
+    .proj-frame > .corner { position: absolute; width: 15px; height: 15px;
+      color: color-mix(in srgb, var(--color-text) 55%, transparent); pointer-events: none; }
+    .proj-frame > .corner::before { content: ""; position: absolute; left: 7px; top: 0; width: 1px; height: 100%; background: currentColor; }
+    .proj-frame > .corner::after  { content: ""; position: absolute; top: 7px; left: 0; width: 100%; height: 1px; background: currentColor; }
+    .proj-frame > .corner.tl { top: -8px; left: -8px; } .proj-frame > .corner.tr { top: -8px; right: -8px; }
+    .proj-frame > .corner.bl { bottom: -8px; left: -8px; } .proj-frame > .corner.br { bottom: -8px; right: -8px; }
+    .proj-frame h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+      font-size: 24px; line-height: var(--leading); letter-spacing: 0.02em; text-transform: uppercase;
+      margin: 0; text-box: trim-both cap alphabetic; }
+    .proj-frame .proj-meta { margin-top: var(--half); font-size: 13px; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--color-accent-700); }
+    .proj-frame p { font-size: 15px; line-height: var(--leading); margin: calc(var(--leading) - 1cap) 0 0;
+      color: color-mix(in srgb, var(--color-text) 78%, transparent); flex: 1; text-box: trim-both cap alphabetic; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--leading); }
+    .proj-links { display: flex; gap: var(--space-2); margin-top: var(--leading); }
+
+    .close { padding: calc(2.5 * var(--leading)) 0 calc(2 * var(--leading)); }
+    .close h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+      font-size: 26px; line-height: var(--leading); letter-spacing: 0.02em; text-transform: uppercase;
+      margin: 0; text-box: trim-both cap alphabetic; }
+    .close .sub { font-size: 16px; line-height: var(--leading); color: color-mix(in srgb, var(--color-text) 78%, transparent);
+      margin: calc(var(--leading) - 1cap) 0 0; max-width: var(--measure); text-box: trim-both cap alphabetic; }
+    .close .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--leading); }
+    footer { padding: calc(2 * var(--leading)) 0; font-size: 13px; line-height: var(--leading);
+      color: color-mix(in srgb, var(--color-text) 70%, transparent); display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: var(--half); }
+
+    @media (max-width: 880px) { .cells { grid-template-columns: 1fr; } .about-grid { grid-template-columns: 1fr; } .stat-row { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .lang-row { flex-direction: column; } .lang-seg { border-left: 0; border-top: 1px solid var(--color-divider); } .lang-seg:first-child { border-top: 0; } .stat-row { grid-template-columns: 1fr 1fr; } .stat-cell:nth-child(3) { border-left: 0; } }
+  </style>
+</helmet>
+<nav class="nav">
+  <span class="nav-brand">J. Jumbles</span>
+  <a href="#work" aria-current="location">Work</a>
+  <a href="#stats">Stats</a>
+  <a href="#contact">Contact</a>
+  <button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Resume</button>
+</nav>
+<div class="wrap">
+
+  <section class="hero">
+    <h1 class="display"><span class="line">Prototyper.</span> <span class="line">Game &amp; app builder.</span></h1>
+    <p class="sub">I'm Joshua — an independent developer who ships small, sharp things: interactive installations, board-game engines, and Unity puzzlers. Most of what I build starts as a paper prototype and ends as a working repo.</p>
+    <div class="row">
+      <a href="https://github.com/JoshuaJumbles" target="_blank" rel="noopener"><button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>View GitHub</button></a>
+      <button type="button" class="btn btn-ghost">Download resume</button>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <span class="kicker">01 · About</span>
+    <hr class="caption-rule">
+    <div class="about-grid">
+      <div>
+        <p>I work mostly solo, across iOS/Swift installations and Unity/C# games — turn-based systems, hex and maze generators, gesture-first mechanics, and the occasional client build for a small business kiosk. I like tight scopes and fast iteration: most of these repos started life as a paper prototype or a jam entry.</p>
+        <p>Recently I've been pulled toward board-game architecture — generalized turn-based engines that can seat any ruleset on top — and toward UI/UX component systems for my own workflow.</p>
+      </div>
+      <div class="skills">
+        <span class="tag tag-accent">Swift</span>
+        <span class="tag tag-accent">SpriteKit</span>
+        <span class="tag tag-accent">Unity</span>
+        <span class="tag tag-accent">C#</span>
+        <span class="tag tag-outline">Metal</span>
+        <span class="tag tag-outline">JavaScript</span>
+        <span class="tag tag-outline">Node</span>
+        <span class="tag tag-outline">p5.js</span>
+        <span class="tag tag-neutral">Game Design</span>
+        <span class="tag tag-neutral">Procedural Gen</span>
+        <span class="tag tag-neutral">UI Prototyping</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="stats">
+    <span class="kicker">02 · GitHub, by the numbers</span>
+    <hr class="caption-rule">
+    <div class="plate">
+      <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+      <header class="title-block">
+        <span class="tb-title">JoshuaJumbles — repository record</span>
+        <span class="tb-cell">GH-01</span>
+        <span class="tb-cell">Public + private</span>
+      </header>
+      <div class="stat-row">
+        <div class="stat-cell"><span class="stat-num">84</span><span class="stat-label">Repositories</span></div>
+        <div class="stat-cell"><span class="stat-num">10+ yrs</span><span class="stat-label">Building in git</span></div>
+        <div class="stat-cell"><span class="stat-num">7</span><span class="stat-label">Public repos</span></div>
+        <div class="stat-cell"><span class="stat-num">Weekly</span><span class="stat-label">Commit cadence</span></div>
+      </div>
+      <div class="lang-row">
+        <span class="lang-seg"><b>38%</b>C#</span>
+        <span class="lang-seg"><b>27%</b>Swift</span>
+        <span class="lang-seg"><b>19%</b>JavaScript</span>
+        <span class="lang-seg"><b>16%</b>Other</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <span class="kicker">03 · Selected work</span>
+    <hr class="caption-rule">
+    <div class="cells">
+
+      <div class="proj-frame">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h3>Total Photo Booth</h3>
+        <span class="proj-meta">Swift · iOS</span>
+        <p>A photo booth app with built-in reporting, built to run as a standing installation inside a small business.</p>
+        <div class="proj-tags"><span class="tag tag-outline">Swift</span><span class="tag tag-outline">iOS</span><span class="tag tag-outline">Reporting</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/JoshuaJumbles/TotalPhotoBooth" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj-frame">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h3>Dice Solitaire</h3>
+        <span class="proj-meta">Unity · C#</span>
+        <p>A Unity implementation of Sid Sackson's Dice Solitaire, with drag-gesture dice control as the primary interaction.</p>
+        <div class="proj-tags"><span class="tag tag-outline">Unity</span><span class="tag tag-outline">C#</span><span class="tag tag-outline">Gestures</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/JoshuaJumbles/DiceSolitaire" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="proj-frame">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h3>Dash Slash</h3>
+        <span class="proj-meta">Unity · C#</span>
+        <p>A puzzler about planning the optimal attack on a room full of baddies, evolved from the paper prototype Strike-Through.</p>
+        <div class="proj-tags"><span class="tag tag-outline">Unity</span><span class="tag tag-outline">C#</span><span class="tag tag-outline">iOS</span></div>
+        <div class="proj-links">
+          <a href="https://github.com/JoshuaJumbles/DashSlash" target="_blank" rel="noopener">GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="close" id="contact">
+    <span class="kicker">04 · Get in touch</span>
+    <hr class="caption-rule">
+    <h3>Let's build something</h3>
+    <p class="sub">Open to freelance prototyping work, jam collaborations, or just talking shop about hex grids and turn-based engines.</p>
+    <div class="row">
+      <button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Download resume</button>
+      <a href="https://github.com/JoshuaJumbles" target="_blank" rel="noopener"><button type="button" class="btn btn-ghost">GitHub profile</button></a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Joshua Jumbles</span>
+    <span>Built from live GitHub data</span>
+  </footer>
 </div>
-<div class="links">
-	<a class="but" href="https://joshuajumbles.itch.io/">
-	  	<img class="bottom" src="Images/Button_GamesOn.png">
-	  	<img class="top"    src="Images/Button_GamesOff.png">
-	</a>
-	<a class="but" href="https://www.youtube.com/channel/UC-ZGkangM4NekvKyBFU1Cvw">
-	  	<img class="bottom" src="Images/Button_VidsOn.png">
-	  	<img class="top"    src="Images/Button_VidsOff.png">
-	</a>
-	<a class="but" href="http://twitter.com/joshuajumbles">
-	  	<img class="bottom" src="Images/Button_TwitsOn.png">
-	  	<img class="top"    src="Images/Button_TwitsOff.png">
-	</a>
-	<a class="but" href="https://www.tumblr.com/blog/monsterspree/">
-	  	<img class="bottom" src="Images/Button_PicsOn.png">
-	  	<img class="top"    src="Images/Button_PicsOff.png">
-	</a>
-	<a class="but" href="https://www.linkedin.com/in/joshua-safran-88b42a36/">
-	  	<img class="bottom" src="Images/Button_BizOn.png">
-	  	<img class="top"    src="Images/Button_BizOff.png">
-	</a>
-</div>
 
-
+</x-dc>
 </body>
 </html>
