@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joshua Safran — iOS Engineer</title>
+<meta name="description" content="iOS engineer with ten years shipping mobile products at Peloton, GameChanger, and beyond. Open to full-time iOS roles.">
+<meta property="og:title" content="Joshua Safran — iOS Engineer">
+<meta property="og:description" content="iOS engineer with ten years shipping mobile products at Peloton, GameChanger, and beyond. Open to full-time iOS roles.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://joshuajumbles.com/">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -39,6 +45,15 @@
       text-box: trim-both cap alphabetic; }
     .hero .row { display: flex; gap: var(--space-3); flex-wrap: wrap; margin-top: var(--leading); }
 
+    .wordmarks { display: flex; flex-wrap: wrap; align-items: center;
+      margin-top: calc(var(--leading) - var(--half)); }
+    .wordmarks-label { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: color-mix(in srgb, var(--color-text) 55%, transparent); margin-right: var(--leading); }
+    .wordmark { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+      font-size: 15px; letter-spacing: 0.02em; text-transform: uppercase;
+      padding: 0 var(--leading); border-left: 1px solid var(--color-divider); }
+    .wordmark:first-of-type { border-left: 0; padding-left: 0; }
+
     .section { padding: calc(2.5 * var(--leading)) 0; }
 
     .about-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--leading) clamp(24px, 5vw, 72px); }
@@ -46,6 +61,9 @@
       color: color-mix(in srgb, var(--color-text) 84%, transparent);
       margin: 0 0 var(--half); }
     .skills { display: flex; flex-wrap: wrap; gap: var(--space-2); align-content: flex-start; }
+    .skills-groups { display: flex; flex-direction: column; gap: var(--leading); }
+    .skills-group-label { display: block; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+      color: color-mix(in srgb, var(--color-text) 60%, transparent); margin-bottom: var(--half); }
 
     .plate { position: relative; border: 1px solid var(--color-divider); }
     .plate > .corner { position: absolute; width: 15px; height: 15px;
@@ -68,11 +86,6 @@
       font-feature-settings: "tnum" 1; }
     .stat-label { display: block; margin-top: var(--half); font-size: 13px; letter-spacing: 0.04em;
       text-transform: uppercase; color: color-mix(in srgb, var(--color-text) 70%, transparent); }
-    .lang-row { display: flex; border-top: 1px solid var(--color-divider); }
-    .lang-seg { padding: var(--half) var(--leading); font-size: 13px; letter-spacing: 0.04em;
-      text-transform: uppercase; border-left: 1px solid var(--color-divider); }
-    .lang-seg:first-child { border-left: 0; }
-    .lang-seg b { color: var(--color-accent-700); font-feature-settings: "tnum" 1; margin-right: 6px; }
 
     .cells { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px);
       margin-top: calc(var(--leading) - var(--half)); }
@@ -94,6 +107,15 @@
     .proj-tags { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--leading); }
     .proj-links { display: flex; gap: var(--space-2); margin-top: var(--leading); }
 
+    .earlier-roles { border: 1px solid var(--color-divider); margin-top: var(--leading); }
+    .earlier-role { padding: var(--leading); border-top: 1px solid var(--color-divider); }
+    .earlier-role:first-child { border-top: 0; }
+    .earlier-role-head { display: block; font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+      font-size: 15px; letter-spacing: 0.02em; margin-bottom: var(--half); }
+    .earlier-role-head b { text-transform: uppercase; }
+    .earlier-role p { font-size: 14px; line-height: var(--leading); margin: 0;
+      color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+
     .close { padding: calc(2.5 * var(--leading)) 0 calc(2 * var(--leading)); }
     .close h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight);
       font-size: 26px; line-height: var(--leading); letter-spacing: 0.02em; text-transform: uppercase;
@@ -106,24 +128,34 @@
       flex-wrap: wrap; gap: var(--half); }
 
     @media (max-width: 880px) { .cells { grid-template-columns: 1fr; } .about-grid { grid-template-columns: 1fr; } .stat-row { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 560px) { .lang-row { flex-direction: column; } .lang-seg { border-left: 0; border-top: 1px solid var(--color-divider); } .lang-seg:first-child { border-top: 0; } .stat-row { grid-template-columns: 1fr 1fr; } .stat-cell:nth-child(3) { border-left: 0; } }
+    @media (max-width: 560px) { .stat-row { grid-template-columns: 1fr 1fr; } .stat-cell:nth-child(3) { border-left: 0; } .wordmark { padding: 0 var(--half) 0 0; border-left: 0; } }
   </style>
 </helmet>
 <nav class="nav">
   <span class="nav-brand">J. Jumbles</span>
-  <a href="#work" aria-current="location">Work</a>
-  <a href="#stats">Stats</a>
+  <a href="#experience" aria-current="location">Experience</a>
+  <a href="#impact">Impact</a>
   <a href="#contact">Contact</a>
   <a href="assets/resume.pdf" target="_blank" rel="noopener"><button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Resume</button></a>
 </nav>
 <div class="wrap">
 
   <section class="hero">
-    <h1 class="display"><span class="line">Prototyper.</span> <span class="line">Game &amp; app builder.</span></h1>
-    <p class="sub">I'm Joshua — an independent developer who ships small, sharp things: interactive installations, board-game engines, and Unity puzzlers. Most of what I build starts as a paper prototype and ends as a working repo.</p>
+    <span class="kicker">Available · Open to full-time iOS roles</span>
+    <h1 class="display"><span class="line">iOS Engineer.</span> <span class="line">Ten years shipping mobile.</span></h1>
+    <p class="sub">I'm Joshua — I joined Peloton as its first iOS engineer and later led iOS engineering at GameChanger (Dick's Sporting Goods). Ten years building and shipping mobile products at scale, from a five-person startup to a platform serving 100,000+ concurrent users. Currently building daily in Swift and SwiftUI.</p>
+    <div class="wordmarks">
+      <span class="wordmarks-label">Experience at</span>
+      <span class="wordmark">Peloton</span>
+      <span class="wordmark">GameChanger</span>
+      <span class="wordmark">Dick's Sporting Goods</span>
+      <span class="wordmark">Stray Boots</span>
+      <span class="wordmark">iDevices</span>
+    </div>
     <div class="row">
-      <a href="https://github.com/JoshuaJumbles" target="_blank" rel="noopener"><button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>View GitHub</button></a>
-      <a href="assets/resume.pdf" download="Joshua-Safran-Resume.pdf"><button type="button" class="btn btn-ghost">Download resume</button></a>
+      <a href="assets/resume.pdf" download="Joshua-Safran-Resume.pdf"><button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Download resume</button></a>
+      <a href="https://www.linkedin.com/in/joshua-safran-120613379" target="_blank" rel="noopener"><button type="button" class="btn btn-ghost">LinkedIn</button></a>
+      <a href="https://github.com/JoshuaJumbles" target="_blank" rel="noopener"><button type="button" class="btn btn-ghost">GitHub</button></a>
     </div>
   </section>
 
@@ -132,56 +164,109 @@
     <hr class="caption-rule">
     <div class="about-grid">
       <div>
-        <p>I work mostly solo, across iOS/Swift installations and Unity/C# games — turn-based systems, hex and maze generators, gesture-first mechanics, and the occasional client build for a small business kiosk. I like tight scopes and fast iteration: most of these repos started life as a paper prototype or a jam entry.</p>
-        <p>Recently I've been pulled toward board-game architecture — generalized turn-based engines that can seat any ruleset on top — and toward UI/UX component systems for my own workflow.</p>
+        <p>I'm an iOS engineer with ten years of mobile and full-stack experience at startups including Peloton and GameChanger — hired as Peloton's first iOS engineer at eight employees, and later promoted to senior engineer leading iOS at GameChanger (Dick's Sporting Goods) through its highest-traffic seasons. I've hired, mentored, and led small mobile teams, and carried incident-response duty for a platform peaking at 100,000+ concurrent sessions.</p>
+        <p>Between roles I've run a small business — a pinball arcade and novelty shop — and kept building independent iOS projects and Unity games on the side, most starting as a paper prototype and ending as a working repo with a full Git history. Currently back to building full-time, daily in Swift and SwiftUI.</p>
       </div>
-      <div class="skills">
-        <span class="tag tag-accent">Swift</span>
-        <span class="tag tag-accent">SpriteKit</span>
-        <span class="tag tag-accent">Unity</span>
-        <span class="tag tag-accent">C#</span>
-        <span class="tag tag-outline">Metal</span>
-        <span class="tag tag-outline">JavaScript</span>
-        <span class="tag tag-outline">Node</span>
-        <span class="tag tag-outline">p5.js</span>
-        <span class="tag tag-neutral">Game Design</span>
-        <span class="tag tag-neutral">Procedural Gen</span>
-        <span class="tag tag-neutral">UI Prototyping</span>
+      <div class="skills-groups">
+        <div class="skills-group">
+          <span class="skills-group-label">iOS & Mobile</span>
+          <div class="skills">
+            <span class="tag tag-accent">Swift</span>
+            <span class="tag tag-accent">SwiftUI</span>
+            <span class="tag tag-accent">UIKit</span>
+            <span class="tag tag-accent">Objective-C</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="skills-group-label">Architecture & Practice</span>
+          <div class="skills">
+            <span class="tag tag-outline">MVVM</span>
+            <span class="tag tag-outline">TDD</span>
+            <span class="tag tag-outline">Git / GitHub</span>
+            <span class="tag tag-outline">Mentoring</span>
+          </div>
+        </div>
+        <div class="skills-group">
+          <span class="skills-group-label">Backend & Web</span>
+          <div class="skills">
+            <span class="tag tag-neutral">Node.js</span>
+            <span class="tag tag-neutral">TypeScript</span>
+            <span class="tag tag-neutral">SQL</span>
+            <span class="tag tag-neutral">AWS</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="section" id="stats">
-    <span class="kicker">02 · GitHub, by the numbers</span>
+  <section class="section" id="experience">
+    <span class="kicker">02 · Professional experience</span>
+    <hr class="caption-rule">
+    <div class="cells">
+
+      <div class="proj-frame">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h3>GameChanger</h3>
+        <span class="proj-meta">Senior iOS Engineer · 2018 – 2021</span>
+        <p>Shipped the company's first live video streaming feature and led iOS engineering for parent company Dick's Sporting Goods through COVID. On-call lead for the #1 youth sports app at 100K–200K concurrent sessions, mentoring a five-engineer team.</p>
+        <div class="proj-tags"><span class="tag tag-outline">Swift</span><span class="tag tag-outline">TypeScript</span><span class="tag tag-outline">Leadership</span></div>
+      </div>
+
+      <div class="proj-frame">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h3>Peloton</h3>
+        <span class="proj-meta">Lead iOS Developer · 2013 – 2015</span>
+        <p>Joined as employee #8 and Peloton's first iOS engineer. Built the company's first iOS app from scratch, pitched and shipped its first in-app-purchase revenue stream, and grew the app to 15,000+ users and a 5-star App Store rating.</p>
+        <div class="proj-tags"><span class="tag tag-outline">Objective-C</span><span class="tag tag-outline">Video</span><span class="tag tag-outline">0→1</span></div>
+      </div>
+
+      <div class="proj-frame">
+        <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+        <h3>Small Business Owner</h3>
+        <span class="proj-meta">Owner / Independent Developer · 2021 – Present</span>
+        <p>Running a pinball arcade and novelty shop while building independent iOS projects — including this site's Total Photo Booth — and returning full-time to daily Swift and SwiftUI development, AI-paired end to end.</p>
+        <div class="proj-tags"><span class="tag tag-outline">Swift</span><span class="tag tag-outline">SwiftUI</span><span class="tag tag-outline">Independent</span></div>
+      </div>
+
+    </div>
+
+    <div class="earlier-roles">
+      <div class="earlier-role">
+        <span class="earlier-role-head"><b>Independent Contractor</b> — Philadelphia, PA & Brooklyn, NY · 2015 – 2018</span>
+        <p>Solo-built an AR museum-hunt game that won the Philadelphia Museum of Art Hackathon against 100+ teams; also shipped photo-booth and Bluetooth-integration projects for clients including Umpqua Bank.</p>
+      </div>
+      <div class="earlier-role">
+        <span class="earlier-role-head"><b>Stray Boots</b> — New York, NY · 2013</span>
+        <p>Built features for a cross-platform AR scavenger-hunt app played on city streets, engineered for reliability under spotty network conditions.</p>
+      </div>
+      <div class="earlier-role">
+        <span class="earlier-role-head"><b>iDevices</b> — Hartford, CT · 2011 – 2012</span>
+        <p>Stabilized a Bluetooth-thermometer app's App Store rating from 2★ to 4★, then grew the app team from a solo function to four people.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="impact">
+    <span class="kicker">03 · Career impact by the numbers</span>
     <hr class="caption-rule">
     <div class="plate">
       <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
       <header class="title-block">
-        <span class="tb-title">JoshuaJumbles — repository record</span>
-        <span class="tb-cell">GH-01</span>
-        <span class="tb-cell" id="stat-synced">Auto-synced daily</span>
+        <span class="tb-title">Joshua Safran — career record</span>
+        <span class="tb-cell">CI-01</span>
+        <span class="tb-cell">2011 – Present</span>
       </header>
       <div class="stat-row">
-        <!-- Static, not wired to assets/stats.json: the real total (incl.
-             private repos) isn't independently checkable by a visitor and
-             getting it live would need a personal token in this repo's
-             secrets. Update this by hand if it drifts far from "80+". -->
-        <div class="stat-cell"><span class="stat-num">80+</span><span class="stat-label">Total repos</span></div>
-        <div class="stat-cell"><span class="stat-num" id="stat-repos">9</span><span class="stat-label">Public repos</span></div>
-        <div class="stat-cell"><span class="stat-num" id="stat-years">16 yrs</span><span class="stat-label">Building in git</span></div>
-        <div class="stat-cell"><span class="stat-num" id="stat-cadence">1/wk</span><span class="stat-label">Commit cadence</span></div>
-      </div>
-      <div class="lang-row" id="lang-row">
-        <span class="lang-seg"><b>59%</b>Swift</span>
-        <span class="lang-seg"><b>18%</b>JavaScript</span>
-        <span class="lang-seg"><b>15%</b>C#</span>
-        <span class="lang-seg"><b>8%</b>Other</span>
+        <div class="stat-cell"><span class="stat-num">10 yrs</span><span class="stat-label">Mobile & full-stack experience</span></div>
+        <div class="stat-cell"><span class="stat-num">100K+</span><span class="stat-label">Peak concurrent sessions, GameChanger</span></div>
+        <div class="stat-cell"><span class="stat-num">15K+</span><span class="stat-label">Users grown, Peloton iOS</span></div>
+        <div class="stat-cell"><span class="stat-num">5★</span><span class="stat-label">App Store rating, Peloton</span></div>
       </div>
     </div>
   </section>
 
   <section class="section" id="work">
-    <span class="kicker">03 · Selected work</span>
+    <span class="kicker">04 · Also building</span>
     <hr class="caption-rule">
     <div class="cells">
 
@@ -222,81 +307,24 @@
   </section>
 
   <section class="close" id="contact">
-    <span class="kicker">04 · Get in touch</span>
+    <span class="kicker">05 · Get in touch</span>
     <hr class="caption-rule">
-    <h3>Let's build something</h3>
-    <p class="sub">Open to freelance prototyping work, jam collaborations, or just talking shop about hex grids and turn-based engines.</p>
+    <h3>Let's talk</h3>
+    <p class="sub">Open to full-time iOS roles, and always happy to talk shop about mobile architecture, incident response, or hex grids and turn-based engines.</p>
     <div class="row">
       <a href="assets/resume.pdf" download="Joshua-Safran-Resume.pdf"><button type="button" class="btn btn-primary blueprint"><i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>Download resume</button></a>
-      <a href="https://github.com/JoshuaJumbles" target="_blank" rel="noopener"><button type="button" class="btn btn-ghost">GitHub profile</button></a>
+      <a href="mailto:heythere@joshuajumbles.com"><button type="button" class="btn btn-ghost">Email</button></a>
+      <a href="https://www.linkedin.com/in/joshua-safran-120613379" target="_blank" rel="noopener"><button type="button" class="btn btn-ghost">LinkedIn</button></a>
+      <a href="https://github.com/JoshuaJumbles" target="_blank" rel="noopener"><button type="button" class="btn btn-ghost">GitHub</button></a>
     </div>
   </section>
 
   <footer>
     <span>© 2026 Joshua Jumbles</span>
-    <span>Built from live GitHub data</span>
+    <span>Built with Claude Code</span>
   </footer>
 </div>
 
 </x-dc>
-
-<script>
-  // Lives outside <x-dc> on purpose: that element's contents are torn out and
-  // re-rendered by the dc-runtime (support.js), so a script placed inside it
-  // wouldn't reliably run. This one is plain page JS, executed normally by
-  // the browser, and just patches text into the DOM once the runtime has
-  // mounted — assets/stats.json is refreshed daily by
-  // .github/workflows/update-stats.yml. If the fetch fails for any reason
-  // (offline, first paint, JSON missing), the static numbers already in the
-  // markup above stand as the fallback.
-  (function () {
-    function applyStats(stats) {
-      var setText = function (id, value) {
-        var el = document.getElementById(id);
-        if (el && value !== undefined && value !== null) el.textContent = value;
-      };
-      setText('stat-repos', stats.publicRepos);
-      setText('stat-years', stats.yearsOnGithub + ' yrs');
-      setText('stat-cadence', stats.weeklyCommitCadence + '/wk');
-
-      var langRow = document.getElementById('lang-row');
-      if (langRow && Array.isArray(stats.languages) && stats.languages.length) {
-        langRow.innerHTML = stats.languages
-          .map(function (l) { return '<span class="lang-seg"><b>' + l.pct + '%</b>' + l.name + '</span>'; })
-          .join('');
-      }
-
-      var synced = document.getElementById('stat-synced');
-      if (synced && stats.generatedAt) {
-        var d = new Date(stats.generatedAt);
-        synced.textContent = 'Synced ' + d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-      }
-    }
-
-    function mounted() { return !!document.getElementById('stat-repos'); }
-
-    function waitForMount(cb) {
-      if (mounted()) return cb();
-      var tries = 0;
-      var timer = setInterval(function () {
-        tries++;
-        if (mounted() || tries > 100) {
-          clearInterval(timer);
-          if (mounted()) cb();
-        }
-      }, 50);
-    }
-
-    waitForMount(function () {
-      fetch('assets/stats.json', { cache: 'no-store' })
-        .then(function (res) {
-          if (!res.ok) throw new Error('stats.json ' + res.status);
-          return res.json();
-        })
-        .then(applyStats)
-        .catch(function (err) { console.warn('[stats] using static fallback:', err); });
-    });
-  })();
-</script>
 </body>
 </html>
